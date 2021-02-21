@@ -1,0 +1,60 @@
+{
+  "name": "mb-graphql",
+  "version": "0.0.1",
+  "description": "mountebank test doubles for GraphQL",
+  "author": "bashj79",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bashj79/mb-graphql.git"
+  },
+  "bin": {
+    "mb-graphql": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "test": "jest",
+    "build": "npm run lint && npm run compile && npm test",
+    "compile": "rimraf dist && babel src --out-dir dist --ignore '**/*.test.js'"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "keywords": [
+    "mountebank",
+    "graphql",
+    "test",
+    "stub",
+    "mock",
+    "double"
+  ],
+  "dependencies": {
+    "@graphql-tools/load": "^6.2.7",
+    "@graphql-tools/url-loader": "^6.8.1",
+    "apollo-server": "^2.21.0",
+    "core-js": "^3.9.0",
+    "graphql": "^15.5.0",
+    "graphql-middleware": "^6.0.4",
+    "node-fetch": "^2.6.1",
+    "node-gyp": "^7.1.2",
+    "npm-local": "0.0.1",
+    "regenerator-runtime": "^0.13.7"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.17",
+    "@babel/core": "^7.12.17",
+    "@babel/preset-env": "^7.12.17",
+    "babel-jest": "^26.6.3",
+    "cpy-cli": "^3.1.1",
+    "eslint": "^7.20.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.5",
+    "jest": "^26.6.3",
+    "rimraf": "^3.0.2"
+  }
+}
