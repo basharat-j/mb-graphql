@@ -46,24 +46,22 @@ mb start --protofile protocols.json
       "predicates": [
         {
           "equals": {
-            "query": "myMutation"
+            "query": "myQuery"
           }
         },
         {
           "equals": {
             "args": {
-              "myFirstArg": 1
+              "myFirstArg": 123
             }
           }
         }
       ],
       "responses": [
         {
-          "is": [
-            {
-              "beta": "abcdef"
-            }
-          ]
+          "is": {
+            "beta": "abcdef"
+          }
         }
       ]
     }

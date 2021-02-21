@@ -1,5 +1,8 @@
 const getPathElements = (path) => {
-  const { prev, ...simplePath } = path;
+  const {
+    prev,
+    ...simplePath
+  } = path;
   return path.prev
     ? [...getPathElements(path.prev), simplePath]
     : [simplePath];

@@ -1,6 +1,10 @@
-export default ({ operationType, pathKey, args }) => ({
+export default ({
+  operationType,
+  pathKey,
+  args,
+}) => ({
   request: {
-    [`${operationType}`]: pathKey,
+    [`${operationType.toLowerCase()}`]: pathKey,
     args,
   },
 });

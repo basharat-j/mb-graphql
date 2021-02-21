@@ -1,6 +1,6 @@
 {
   "name": "mb-graphql",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "mountebank test doubles for GraphQL",
   "author": "bashj79",
   "license": "MIT",
@@ -40,8 +40,6 @@
     "graphql": "^15.5.0",
     "graphql-middleware": "^6.0.4",
     "node-fetch": "^2.6.1",
-    "node-gyp": "^7.1.2",
-    "npm-local": "0.0.1",
     "regenerator-runtime": "^0.13.7"
   },
   "devDependencies": {
@@ -53,7 +51,7 @@
     "eslint": "^7.20.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jest": "^24.1.5",
+    "eslint-plugin-jest": "^22.21.0",
     "jest": "^26.6.3",
     "rimraf": "^3.0.2"
   }
