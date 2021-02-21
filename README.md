@@ -32,7 +32,7 @@ Start mountebank with the following `protocols.json` file ([master on GitHub](ht
 mb start --protofile protocols.json
 ```
 
-## Basic example
+## Example
 
 `imposter.json`
 
@@ -79,7 +79,7 @@ curl -i -X POST -H 'Content-Type: application/json' http://localhost:2525/impost
 
 ```graphql
 query {
-    myQuery(myFirstArg: 1, mySecondArg: 2) {
+    myQuery(myFirstArg: 123, mySecondArg: 456) {
         alpha
         beta
     }
@@ -98,6 +98,7 @@ query {
   }
 }
 ```
+Note: The value for `myQuery.alpha` has been randomly generated as it was omitted from the stub's response.
 
 ## Imposter Creation Parameters
 
