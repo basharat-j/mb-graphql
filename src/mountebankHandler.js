@@ -11,7 +11,10 @@ export default async (resolve, root, args, context, info) => {
     pathKey,
   } = getOperationTypeAndPathKey(info.path);
 
-  const { data, error } = await invokeMountebankCallback({
+  const {
+    data,
+    error,
+  } = await invokeMountebankCallback({
     operationType,
     pathKey,
     args,

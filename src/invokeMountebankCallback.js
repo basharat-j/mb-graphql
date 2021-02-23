@@ -2,7 +2,6 @@ import fetch from 'node-fetch';
 
 import createMountebankCallbackBody from './createMountebankCallbackBody';
 import config from './config';
-import logger from './logger';
 
 export default async ({
   operationType,
