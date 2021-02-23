@@ -7,7 +7,7 @@ import mountebankHandler from './mountebankHandler';
 export default async ({
   schema,
   schemaEndpoint,
-  schemaEndpointHeaders,
+  schemaEndpointHeaders = {},
 }) => {
   const imposterSchema = !schemaEndpoint
     ? await loadSchema(schema)

@@ -11,14 +11,17 @@ export default async (resolve, root, args, context, info) => {
     pathKey,
   } = getOperationTypeAndPathKey(info.path);
 
-  const mountebankResponse = await invokeMountebankCallback({
+  const { data, error } = await invokeMountebankCallback({
     operationType,
     pathKey,
     args,
+    headers: context.headers,
   });
-
-  const resolvedResult = isEmptyObject(mountebankResponse)
-    ? undefined
-    : mountebankResponse;
-  return resolvedResult;
+  if (error) {
+    throw new Error(error);
+  }
+  if (data !== undefined) {
+    return data;
+  }
+  return undefined;
 };

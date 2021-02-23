@@ -1,22 +1,16 @@
 # Welcome, friend
 
-mb-graphql is a mountebank plugin that makes creating test doubles for GraphQL APIs a lot more fun.
+mb-graphql is a [mountebank](https://www.mbtest.org) plugin that makes creating test doubles for GraphQL APIs a lot simpler... and fun.
 
-Easily create multiple GraphQL APIs each with their own schema definition.
-
-Returns random GraphQL responses easily overridden via mountebank `stubs` (see below).
+Wraps [Apollo Server](https://www.apollographql.com/docs/apollo-server) to allow easy declaration of a mock GraphQL server via mountebank `stubs` (see below).
 
 ## Install and Run
-
-Install:
-
-    npm install -g mb-graphql
-
-Run:
-
 Prerequisite:
-
 * [mountebank](https://www.mbtest.org)
+
+```
+npm install -g mb-graphql
+```
 
 Start mountebank with the following `protocols.json` file ([master on GitHub](https://github.com/bashj79/mb-graphql/blob/master/protocols.json)):
 
@@ -31,6 +25,14 @@ Start mountebank with the following `protocols.json` file ([master on GitHub](ht
 ```
 mb start --protofile protocols.json
 ```
+
+## Run with Docker
+```
+docker run -p 2525:2525 [-p IMPOSTER_PORT:IMPOSTER_PORT] -d bashj79/mountebank-graphql
+```
+NOTE: mountebank itself runs on port 2525.
+
+Check out [Docker Hub](https://hub.docker.com/r/bashj79/mountebank-graphql) for further details.
 
 ## Example
 
@@ -60,7 +62,9 @@ mb start --protofile protocols.json
       "responses": [
         {
           "is": {
-            "beta": "abcdef"
+            "data": {
+              "beta": "abcdef"
+            }
           }
         }
       ]
@@ -98,12 +102,13 @@ query {
   }
 }
 ```
+
 Note: The value for `myQuery.alpha` has been randomly generated as it was omitted from the stub's response.
 
 ## Imposter Creation Parameters
 
 For further information about mountebank imposters, stubs and related concepts please refer to
-the [mountbank mental model](http://www.mbtest.org/docs/mentalModel).
+the [mountbank mental model](https://www.mbtest.org/docs/mentalModel).
 
 | Parameter               | Description                                                                                                             | Required?                      | Default                                                                                      |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------|--------------------------------|----------------------------------------------------------------------------------------------|
@@ -123,6 +128,7 @@ the [mountbank mental model](http://www.mbtest.org/docs/mentalModel).
 | `query`    | The name of the GraphQL query e.g. `myQuery` or sub-query e.g. `myQuery.mySubQuery.mySecondSubQuery`. | String |
 | `mutation` | The name of the GraphQL mutation e.g. `myMutation`.                                                   | String |
 | `args`     | The arguments passed to the GraphQL query/mutation.                                                   | Object |
+| `headers`  | The HTTP headers passed to the GraphQL query/mutation.                                                | Object |
 
-Please see the [mountebank predicate documentation](http://www.mbtest.org/docs/api/predicates) for further details of
+Please see the [mountebank predicate documentation](https://www.mbtest.org/docs/api/predicates) for further details of
 mountebank's stub predicates and their usage.
