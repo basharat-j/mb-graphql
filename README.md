@@ -1,11 +1,23 @@
 # Welcome, friend
 
-mb-graphql is a [mountebank](https://www.mbtest.org) plugin that makes creating test doubles for GraphQL APIs a lot simpler... and fun.
+mb-graphql is a [mountebank](https://www.mbtest.org) plugin that makes creating test doubles for GraphQL APIs a lot
+simpler... and fun.
 
-Wraps [Apollo Server](https://www.apollographql.com/docs/apollo-server) to allow easy declaration of a mock GraphQL server via mountebank `stubs` (see below).
+Wraps [Apollo Server](https://www.apollographql.com/docs/apollo-server) to allow easy declaration of a mock GraphQL
+server via mountebank `stubs` (see below).
+
+## Run with Docker (the easiest option)
+```
+docker run -p 2525:2525 [-p IMPOSTER_PORT:IMPOSTER_PORT] -d bashj79/mountebank-graphql
+```
+NOTE: mountebank itself runs on port 2525.
+
+Check out [Docker Hub](https://hub.docker.com/r/bashj79/mountebank-graphql) for further details.
 
 ## Install and Run
+
 Prerequisite:
+
 * [mountebank](https://www.mbtest.org)
 
 ```
@@ -25,14 +37,6 @@ Start mountebank with the following `protocols.json` file ([master on GitHub](ht
 ```
 mb start --protofile protocols.json
 ```
-
-## Run with Docker
-```
-docker run -p 2525:2525 [-p IMPOSTER_PORT:IMPOSTER_PORT] -d bashj79/mountebank-graphql
-```
-NOTE: mountebank itself runs on port 2525.
-
-Check out [Docker Hub](https://hub.docker.com/r/bashj79/mountebank-graphql) for further details.
 
 ## Example
 
