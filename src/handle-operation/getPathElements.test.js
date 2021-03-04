@@ -14,7 +14,8 @@ describe('getPathElements', () => {
     ];
 
     const result = getPathElements(path);
-    expect(result).toEqual(expected);
+    expect(result)
+      .toEqual(expected);
   });
 
   it('should get path elements with path having single previous path', () => {
@@ -38,7 +39,8 @@ describe('getPathElements', () => {
     ];
 
     const result = getPathElements(path);
-    expect(result).toEqual(expected);
+    expect(result)
+      .toEqual(expected);
   });
 
   it('should get path elements with path having multiple previous path with no type', () => {
@@ -68,6 +70,7 @@ describe('getPathElements', () => {
     ];
 
     const result = getPathElements(path);
-    expect(result).toEqual(expected);
+    expect(result)
+      .toEqual(expected);
   });
 });

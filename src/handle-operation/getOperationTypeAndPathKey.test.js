@@ -12,7 +12,8 @@ describe('getOperationTypeAndPathKey', () => {
     };
 
     const result = getOperationTypeAndPathKey(path);
-    expect(result).toEqual(expected);
+    expect(result)
+      .toEqual(expected);
   });
 
   it('should get operation type and path key with path having single previous path', () => {
@@ -30,7 +31,8 @@ describe('getOperationTypeAndPathKey', () => {
     };
 
     const result = getOperationTypeAndPathKey(path);
-    expect(result).toEqual(expected);
+    expect(result)
+      .toEqual(expected);
   });
 
   it('should get operation type and path key with path having multiple previous paths', () => {
@@ -52,7 +54,8 @@ describe('getOperationTypeAndPathKey', () => {
     };
 
     const result = getOperationTypeAndPathKey(path);
-    expect(result).toEqual(expected);
+    expect(result)
+      .toEqual(expected);
   });
 
   it('should get operation type and path key with path having previous path with no type name', () => {
@@ -73,6 +76,7 @@ describe('getOperationTypeAndPathKey', () => {
     };
 
     const result = getOperationTypeAndPathKey(path);
-    expect(result).toEqual(expected);
+    expect(result)
+      .toEqual(expected);
   });
 });

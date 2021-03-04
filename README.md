@@ -83,6 +83,10 @@ Create the imposter via mountebank (assuming it's running on `localhost:2525`):
 curl -i -X POST -H 'Content-Type: application/json' http://localhost:2525/imposters --data @imposter.json
 ```
 
+You can now access the GraphQL playground for the imposter at `http://localhost:4000`:
+
+![GraphQL Playground](./playground.png)
+
 ### Request
 
 ```graphql
@@ -114,16 +118,16 @@ Note: The value for `myQuery.alpha` has been randomly generated as it was omitte
 For further information about mountebank imposters, stubs and related concepts please refer to
 the [mountbank mental model](https://www.mbtest.org/docs/mentalModel).
 
-| Parameter               | Description                                                                                                             | Required?                      | Default                                                                                      |
-|-------------------------|-------------------------------------------------------------------------------------------------------------------------|--------------------------------|----------------------------------------------------------------------------------------------|
-| `protocol`              | Must be set to `graphql`                                                                                                | Yes                            | N/A                                                                                          |                                                                                     
-| `defaultResponse`       | Important: Do not set as it will interfere with GraphQL resolution.                                                     | No. Do not set.                | Default behaviour for the imposter is to return random data according to the defined schema. |
-| `port`                  | The port to run the imposter on.                                                                                        | No                             | A randomly assigned port. mountebank will return the actual value in the `POST` response.    |                                                                                     
-| `name`                  | Included in the logs, useful when multiple imposters are set up.                                                        | No                             | An empty string.                                                                             |
-| `schema`                | A string presenting a valid GraphQL schema definition.                                                                  | No, if `schemaEndpoint` is set | N/A                                                                                          |      
-| `schemaEndpoint`        | The endpoint of an existing GraphQL API which exposes the GraphQL introspection query.                                  | No, if `schema` is set         | N/A                                                                                          |  
-| `schemaEndpointHeaders` | An object representing headers to passed on to the GraphQL API defined in `schemaEndpoint` e.g. `Authorization` header. | No                             | An empty object.                                                                             |
-| `stubs`                 | The list of stubs responsible for matching a GraphQL request and returning a response. See further details below.       | No                             | An empty array.                                                                              |
+| Parameter               | Description                                                                                                              | Required?                      | Default                                                                                      |
+|-------------------------|--------------------------------------------------------------------------------------------------------------------------|--------------------------------|----------------------------------------------------------------------------------------------|
+| `protocol`              | Must be set to `graphql`                                                                                                 | Yes                            | N/A                                                                                          |                                                                                     
+| `defaultResponse`       | Important: Do not set as it will interfere with GraphQL resolution.                                                      | No. Do not set.                | Default behaviour for the imposter is to return random data according to the defined schema. |
+| `port`                  | The port to run the imposter on.                                                                                         | No                             | A randomly assigned port. mountebank will return the actual value in the `POST` response.    |                                                                                     
+| `name`                  | Included in the logs, useful when multiple imposters are set up.                                                         | No                             | An empty string.                                                                             |
+| `schema`                | A string presenting a valid GraphQL schema definition.                                                                   | No, if `schemaEndpoint` is set | N/A                                                                                          |      
+| `schemaEndpoint`        | URL of a GraphQL schema file or the endpoint of an existing GraphQL API which exposes the GraphQL introspection query.   | No, if `schema` is set         | N/A                                                                                          |  
+| `schemaEndpointHeaders` | An object representing headers to passed to the schema endpoint defined in `schemaEndpoint` e.g. `Authorization` header. | No                             | An empty object.                                                                             |
+| `stubs`                 | The list of stubs responsible for matching a GraphQL request and returning a response. See further details below.        | No                             | An empty array.                                                                              |
 
 ## GraphQL Requests
 

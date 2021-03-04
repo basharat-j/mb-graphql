@@ -1,8 +1,9 @@
 import { ApolloServer } from 'apollo-server';
 
 import createImposterSchema from './createImposterSchema';
-import logger from './logger';
+import logger from '../utils/logger';
 import createContext from './createContext';
+import randomString from '../mock-generator/randomString';
 
 export default async ({
   schema,
@@ -17,7 +18,7 @@ export default async ({
   });
   const server = new ApolloServer({
     schema: imposterSchema,
-    mocks: true,
+    mocks: { String: () => randomString() },
     mockEntireSchema: false,
     context: createContext,
     debug: false,

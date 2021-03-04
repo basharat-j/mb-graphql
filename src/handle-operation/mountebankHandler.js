@@ -1,5 +1,5 @@
-import invokeMountebankCallback from './invokeMountebankCallback';
-import isEmptyObject from './isEmptyObject';
+import invokeMountebankCallback from '../mountebank-adapter/invokeMountebankCallback';
+import isEmptyObject from '../utils/isEmptyObject';
 import getOperationTypeAndPathKey from './getOperationTypeAndPathKey';
 
 export default async (resolve, root, args, context, info) => {

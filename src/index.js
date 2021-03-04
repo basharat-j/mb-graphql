@@ -3,9 +3,9 @@
 import 'regenerator-runtime/runtime';
 import 'core-js/stable';
 
-import startImposter from './startImposter';
-import config from './config';
-import logger from './logger';
+import startImposter from './imposter-schema-creator/startImposter';
+import logger from './utils/logger';
+import config from './utils/config';
 
 startImposter({
   schema: config.schema,
@@ -15,8 +15,9 @@ startImposter({
 })
   .catch((error) => {
     logger({
+      level: 'error',
       message: 'Error starting imposter',
-      config,
       error,
     });
+    process.exit(1);
   });
