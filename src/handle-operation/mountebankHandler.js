@@ -1,6 +1,7 @@
-import invokeMountebankCallback from '../mountebank-adapter/invokeMountebankCallback';
 import isEmptyObject from '../utils/isEmptyObject';
 import getOperationTypeAndPathKey from './getOperationTypeAndPathKey';
+import getProxiedResponse from '../schema-proxy/getProxiedResponse';
+import getMountebankStubResponse from '../mountebank-adapter/getMountebankStubResponse';
 
 export default async (resolve, root, args, context, info) => {
   if (root && !isEmptyObject(root)) {
@@ -12,19 +13,36 @@ export default async (resolve, root, args, context, info) => {
   } = getOperationTypeAndPathKey(info.path);
 
   const {
-    data,
-    error,
-  } = await invokeMountebankCallback({
+    response,
+    proxy,
+  } = await getMountebankStubResponse({
     operationType,
     pathKey,
     args,
     headers: context.headers,
   });
-  if (error) {
-    throw new Error(error);
+  if (proxy) {
+    const { to } = proxy;
+    const proxiedResponse = await getProxiedResponse({
+      endpoint: to,
+      operationType,
+      args,
+      context,
+      info,
+    });
+    return proxiedResponse;
   }
-  if (data !== undefined) {
-    return data;
+  if (response) {
+    const {
+      error,
+      data,
+    } = response;
+    if (error) {
+      throw new Error(error);
+    }
+    if (data !== undefined) {
+      return data;
+    }
   }
   return undefined;
 };

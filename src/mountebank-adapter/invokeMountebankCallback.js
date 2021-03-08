@@ -22,5 +22,5 @@ export default async ({
     headers: { 'Content-Type': 'application/json' },
   });
   const mountebankResponse = await mountebankResult.json();
-  return mountebankResponse.response || {};
+  return mountebankResponse;
 };

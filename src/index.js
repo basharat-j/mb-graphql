@@ -1,8 +1,5 @@
 #!/usr/bin/env node
 
-import 'regenerator-runtime/runtime';
-import 'core-js/stable';
-
 import startImposter from './imposter-schema-creator/startImposter';
 import logger from './utils/logger';
 import config from './utils/config';
