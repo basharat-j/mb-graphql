@@ -12,6 +12,7 @@ export default async (resolve, root, args, context, info) => {
     pathKey,
   } = getOperationTypeAndPathKey(info.path);
 
+  const topLevelOperation = !info.path.prev;
   const {
     response,
     proxy,
@@ -20,6 +21,7 @@ export default async (resolve, root, args, context, info) => {
     pathKey,
     args,
     headers: context.headers,
+    topLevelOperation,
   });
   if (proxy) {
     const { to } = proxy;

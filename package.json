@@ -1,6 +1,6 @@
 {
   "name": "mb-graphql",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "mountebank test doubles for GraphQL",
   "author": "bashj79",
   "license": "MIT",

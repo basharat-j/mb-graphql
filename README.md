@@ -127,7 +127,7 @@ the [mountbank mental model](https://www.mbtest.org/docs/mentalModel).
 | `schemaEndpoint`        | URL of a GraphQL schema file or the endpoint of an existing GraphQL API which exposes the GraphQL introspection query.   | No, if `schema` is set         | N/A                                                                                          |  
 | `schemaEndpointHeaders` | An object representing headers to passed to the schema endpoint defined in `schemaEndpoint` e.g. `Authorization` header. | No                             | An empty object.                                                                             |
 | `stubs`                 | The list of stubs responsible for matching a GraphQL request and returning a response. See further details below.        | No                             | An empty array.                                                                              |
-| `defaultResponse`       | The default response which will be used when no stub predicates match the query/mutation.                                | No                             | Default behaviour for the imposter is to return random data according to the defined schema. |
+| `defaultResponse`       | The default response for any top-level query/mutation performed against the schema.                                      | No                             | Default behaviour for the imposter is to return random data according to the defined schema. |
 
 ## GraphQL Requests
 

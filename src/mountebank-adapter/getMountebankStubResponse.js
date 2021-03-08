@@ -7,6 +7,7 @@ export default async ({
   pathKey,
   args,
   headers,
+  topLevelOperation,
 }) => {
   const stubResponse = await invokeMountebankCallback({
     operationType,
@@ -18,7 +19,7 @@ export default async ({
     response,
     proxy,
   } = stubResponse || {};
-  if (isEmptyObject(response) && !proxy) {
+  if (topLevelOperation && isEmptyObject(response) && !proxy) {
     return getDefaultResponse();
   }
   return {
