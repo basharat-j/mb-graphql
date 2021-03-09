@@ -7,9 +7,11 @@ Wraps [Apollo Server](https://www.apollographql.com/docs/apollo-server) to allow
 server via mountebank `stubs` (see below).
 
 ## Run with Docker (the easiest option)
+
 ```
 docker run -p 2525:2525 [-p IMPOSTER_PORT:IMPOSTER_PORT] -d bashj79/mountebank-graphql
 ```
+
 NOTE: mountebank itself runs on port 2525.
 
 Check out [Docker Hub](https://hub.docker.com/r/bashj79/mountebank-graphql) for further details.
@@ -24,7 +26,8 @@ Prerequisite:
 npm install -g mb-graphql
 ```
 
-Start mountebank with the following `protocols.json` file ([master on GitHub](https://github.com/bashj79/mb-graphql/blob/master/protocols.json)):
+Start mountebank with the following `protocols.json`
+file ([master on GitHub](https://github.com/bashj79/mb-graphql/blob/master/protocols.json)):
 
 ```json
 {
@@ -39,6 +42,8 @@ mb start --protofile protocols.json
 ```
 
 ## Example
+
+For further examples please check out the [features](https://github.com/bashj79/mb-graphql/tree/main/src) folder.
 
 `imposter.json`
 

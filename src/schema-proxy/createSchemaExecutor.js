@@ -7,7 +7,10 @@ export default ({ endpoint }) => async ({
   context,
 }) => {
   const query = print(document);
-  const { host, ...headers } = context.headers || {};
+  const {
+    host,
+    ...headers
+  } = context.headers || {};
   const fetchResult = await fetch(endpoint, {
     method: 'post',
     headers,

@@ -1,7 +1,10 @@
 import config from '../utils/config';
 
 export default () => {
-  const { is, proxy } = config.defaultResponse || {};
+  const {
+    is,
+    proxy,
+  } = config.defaultResponse || {};
   if (is) {
     return {
       response: is,

@@ -1,6 +1,6 @@
 {
   "name": "mb-graphql",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "mountebank test doubles for GraphQL",
   "author": "bashj79",
   "license": "MIT",
@@ -13,10 +13,11 @@
   },
   "main": "dist/index.js",
   "scripts": {
-    "lint": "eslint src",
-    "lint:fix": "eslint src --fix",
+    "lint": "eslint src features",
+    "lint:fix": "eslint src features --fix",
     "test": "jest",
-    "build": "npm run lint && npm run compile && npm test",
+    "test:integration": "./node_modules/.bin/cucumber-js --require-module @babel/register",
+    "build": "npm run lint && npm run compile && npm test && npm run test:integration",
     "compile": "rimraf dist && babel src --out-dir dist --ignore '**/*.test.js'"
   },
   "files": [
@@ -46,15 +47,19 @@
   "devDependencies": {
     "@babel/cli": "^7.13.0",
     "@babel/core": "^7.13.8",
-    "@babel/preset-env": "^7.13.9",
     "@babel/plugin-transform-runtime": "^7.13.9",
+    "@babel/preset-env": "^7.13.9",
+    "@babel/register": "^7.13.8",
+    "@cucumber/cucumber": "^7.0.0",
     "babel-jest": "^26.6.3",
     "cpy-cli": "^3.1.1",
     "eslint": "^7.21.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jest": "^22.21.0",
+    "expect": "^26.6.2",
     "jest": "^26.6.3",
+    "mountebank": "^2.4.0",
     "rimraf": "^3.0.2"
   }
 }
