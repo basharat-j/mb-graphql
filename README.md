@@ -43,7 +43,7 @@ mb start --protofile protocols.json
 
 ## Example
 
-For further examples please check out the [features](https://github.com/bashj79/mb-graphql/tree/main/src) folder.
+For further examples please check out the [features](https://github.com/bashj79/mb-graphql/tree/main/features) folder.
 
 `imposter.json`
 
