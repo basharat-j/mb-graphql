@@ -1,6 +1,7 @@
 import { Given } from '@cucumber/cucumber';
 import { ApolloServer, AuthenticationError } from 'apollo-server';
 
+import http from 'http';
 import world from '../world/world';
 
 const createGraphQLServer = async ({
@@ -23,8 +24,8 @@ const createGraphQLServer = async ({
     },
   });
 
+  world.servers[port] = server;
   await server.listen({ port });
-  world.stoppableServers[port] = server;
 };
 
 Given('a GraphQL server exists at {string} with the following schema definition:', async (endpoint, schema) => {
@@ -40,4 +41,29 @@ Given('a secure GraphQL server requiring the {string} bearer token exists at {st
     schema,
     bearerToken,
   });
+});
+
+Given('a GraphQL server exists at {string} which returns the following result for the {string} query:', async (endpoint, queryName, result) => {
+  const url = new URL(endpoint);
+  const port = url.port
+    ? parseInt(url.port, 10)
+    : 80;
+  const server = http.createServer((request, response) => {
+    const requestBodyChunks = [];
+    request.on('data', (chunk) => {
+      requestBodyChunks.push(chunk);
+    });
+    request.on('end', () => {
+      const requestBody = requestBodyChunks.join('');
+      const { query } = JSON.parse(requestBody);
+      if (request.method === 'POST' && query.indexOf(queryName) > -1) {
+        response.writeHead(200);
+        response.end(result);
+      } else {
+        response.writeHead(400);
+      }
+    });
+  });
+  world.servers[port] = server;
+  await server.listen(port, url.hostname);
 });

@@ -1,8 +1,7 @@
 import world from './world';
 
 export default async () => {
-  world.stoppableServers = [];
-  world.closeableServers = [];
+  world.servers = [];
   world.predicates = [];
   world.responses = [];
   world.imposterPort = undefined;

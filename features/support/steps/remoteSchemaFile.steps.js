@@ -8,13 +8,13 @@ Given('a following schema definition exists at the {string} URL:', async (schema
     ? parseInt(url.port, 10)
     : 80;
   const server = http.createServer((request, response) => {
-    if (request.url === url.pathname) {
+    if (request.method === 'GET' && request.url === url.pathname) {
       response.writeHead(200);
       response.end(schema);
     } else {
       response.writeHead(401);
     }
   });
+  world.servers[port] = server;
   await server.listen(port, url.hostname);
-  world.closeableServers[port] = server;
 });

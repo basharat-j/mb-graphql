@@ -35,22 +35,15 @@ AfterAll(async () => {
 });
 
 After(async () => {
-  const stoppableServerPromises = world.stoppableServers
+  const stopServerPromises = world.servers
     .filter((server) => !!server)
-    .map((server) => server.stop()
-      .then(() => {
-        logger('Server stopped');
-      }));
-  const closeableServerPromises = world.closeableServers
-    .filter((server) => !!server)
-    .map((server) => server.close()
-      .once('close', () => {
-        logger('Server stopped (closed)');
-      }));
-  await Promise.all([
-    ...stoppableServerPromises,
-    ...closeableServerPromises,
-  ]);
+    .map((server) => {
+      if (server.close) {
+        return server.close();
+      }
+      return server.stop();
+    });
+  await Promise.all(stopServerPromises);
   await fetch(`http://localhost:${world.mountebankPort}/imposters`, { method: 'delete' });
   await resetWorld();
 });

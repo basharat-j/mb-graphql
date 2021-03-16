@@ -78,5 +78,5 @@ Feature: Create imposter from Inline Schema
     """
     Then the query will be successful and the response will match:
       | JSON Path          | Value Type |
-      | data.myQuery.alpha | Number     |
+      | data.myQuery.alpha | Int        |
       | data.myQuery.beta  | String     |

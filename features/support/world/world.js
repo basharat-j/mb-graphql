@@ -1,8 +1,7 @@
 const world = {
   mountebankPort: 2525,
   mountebankServer: undefined,
-  stoppableServers: [],
-  closeableServers: [],
+  servers: [],
   predicates: [],
   responses: [],
   imposterPort: undefined,

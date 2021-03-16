@@ -1,12 +1,20 @@
 # Welcome, friend
 
 mb-graphql is a [mountebank](https://www.mbtest.org) plugin that makes creating test doubles for GraphQL APIs a lot
-simpler... and fun.
+simpler... and fun: there's no code to write.
 
 Wraps [Apollo Server](https://www.apollographql.com/docs/apollo-server) to allow easy declaration of a mock GraphQL
 server via mountebank `stubs` (see below).
 
-## Run with Docker (the easiest option)
+## Features
+* No code to write: Use [mountebank's REST API](http://www.mbtest.org/docs/api/overview) to create test doubles
+* Create mock GraphQL APIs based on [in-line](https://github.com/bashj79/mb-graphql/tree/main/features/queryImposterCreatedFromInlineGraphQLSchema.feature) or [remote schema definitions](https://github.com/bashj79/mb-graphql/tree/main/features/queryImposterCreatedFromGraphQLSchemaEndpoint.feature)
+* Works with both [top-level queries and sub-queries](https://github.com/bashj79/mb-graphql/tree/main/features/queryImposter.feature)
+* Run [as a proxy](https://github.com/bashj79/mb-graphql/tree/main/features/queryImposterWithProxiedResult.feature) to an existing GraphQL API
+* [Record requests](https://github.com/bashj79/mb-graphql/tree/main/features/recordRequestsForImposter.feature) made against mocked GraphQL API (useful for [Golden Master Testing](https://en.wikipedia.org/wiki/Characterization_test))
+
+## Getting started
+### Option 1: Run with Docker (the easiest option)
 
 ```
 docker run -p 2525:2525 [-p IMPOSTER_PORT:IMPOSTER_PORT] -d bashj79/mountebank-graphql
@@ -16,7 +24,7 @@ NOTE: mountebank itself runs on port 2525.
 
 Check out [Docker Hub](https://hub.docker.com/r/bashj79/mountebank-graphql) for further details.
 
-## Install and Run
+### Option 2: Install and Run
 
 Prerequisite:
 
@@ -42,8 +50,6 @@ mb start --protofile protocols.json
 ```
 
 ## Example
-
-For further examples please check out the [features](https://github.com/bashj79/mb-graphql/tree/main/features) folder.
 
 `imposter.json`
 
@@ -118,6 +124,8 @@ query {
 
 Note: The value for `myQuery.alpha` has been randomly generated as it was omitted from the stub's response.
 
+For further examples please check out the [features](https://github.com/bashj79/mb-graphql/tree/main/features) folder.
+
 ## Imposter Creation Parameters
 
 For further information about mountebank imposters, stubs and related concepts please refer to
@@ -134,7 +142,7 @@ the [mountbank mental model](https://www.mbtest.org/docs/mentalModel).
 | `stubs`                 | The list of stubs responsible for matching a GraphQL request and returning a response. See further details below.        | No                             | An empty array.                                                                              |
 | `defaultResponse`       | The default response for any top-level query/mutation performed against the schema.                                      | No                             | Default behaviour for the imposter is to return random data according to the defined schema. |
 
-## GraphQL Requests
+## GraphQL Request Predicates
 
 | Field      | Description                                                                                           | Type   |
 |------------|-------------------------------------------------------------------------------------------------------|--------|
