@@ -1,5 +1,6 @@
-import { Given } from '@cucumber/cucumber';
+import { Given, Then } from '@cucumber/cucumber';
 import { ApolloServer, AuthenticationError } from 'apollo-server';
+import expect from 'expect';
 
 import http from 'http';
 import world from '../world/world';
@@ -20,6 +21,9 @@ const createGraphQLServer = async ({
       const authorizationParts = (authorization || '').split(' ');
       if ((authorizationParts[0] || '').toLowerCase() !== 'bearer' && authorizationParts[1] !== bearerToken) {
         throw new AuthenticationError('Unauthorized');
+      }
+      if (req && req.body && req.body.query && req.body.query.indexOf('IntrospectionQuery') === -1) {
+        world.requests[port] = (world.requests[port] || 0) + 1;
       }
     },
   });
@@ -66,4 +70,11 @@ Given('a GraphQL server exists at {string} which returns the following result fo
   });
   world.servers[port] = server;
   await server.listen(port, url.hostname);
+});
+
+Then('the GraphQL server at {string} will have not received any requests', (endpoint) => {
+  const url = new URL(endpoint);
+  const { port } = url;
+  expect(world.requests[port])
+    .toBeFalsy();
 });

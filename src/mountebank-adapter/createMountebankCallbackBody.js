@@ -1,11 +1,11 @@
 export default ({
   operationType,
-  pathKey,
+  operationName,
   args,
   headers,
 }) => ({
   request: {
-    [`${operationType.toLowerCase()}`]: pathKey,
+    [`${operationType.toLowerCase()}`]: operationName,
     args,
     headers,
   },

@@ -111,18 +111,20 @@ Then('the following requests will be saved for the imposter:', async (dataTable)
     const operationName = dataRow[1];
     const args = dataRow[2];
     const headers = dataRow[3];
-    expect(operationName)
-      .toEqual(requests[index][operationType]);
+    if (operationName) {
+      expect(requests[index][operationType])
+        .toEqual(operationName);
+    }
     if (args) {
-      expect(JSON.parse(args))
-        .toEqual(requests[index].args);
+      expect(requests[index].args)
+        .toEqual(JSON.parse(args));
     }
     if (headers) {
       const headerObject = JSON.parse(headers);
       const headerKeys = Object.keys(headerObject);
       headerKeys.forEach((headerKey) => {
-        expect(headerObject[headerKey])
-          .toEqual(requests[index].headers[headerKey]);
+        expect(requests[index].headers[headerKey])
+          .toEqual(headerObject[headerKey]);
       });
     }
   });

@@ -17,7 +17,7 @@ export default async ({
     schema: getCurrentSchema(),
     executor,
   });
-  const result = await delegateToSchema({
+  return delegateToSchema({
     schema: delegatedSchema,
     operation: operationType.toLowerCase(),
     fieldName: path.key,
@@ -25,5 +25,4 @@ export default async ({
     context,
     info,
   });
-  return result;
 };

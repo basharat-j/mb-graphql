@@ -160,6 +160,46 @@ Feature: Create imposter from Schema Endpoint
     }
     """
 
+  Scenario: Query non-executable schema imposter with endpoint having accessible introspection query
+    Given a GraphQL server exists at "http://localhost:3000" with the following schema definition:
+    """
+    type Thing {
+      alpha: Int
+      beta: String
+    }
+
+    input ThingInput {
+      alpha: Int!
+      beta: String!
+    }
+
+    type Query {
+      dummyQuery: String
+    }
+
+    type Mutation {
+      myMutation(data: ThingInput!): Thing
+    }
+    """
+    And a GraphQL imposter exists on port 4000 configured with the "http://localhost:3000" schema endpoint
+    When Lee attempts to execute the following GraphQL query:
+    """
+    mutation {
+      myMutation(data: {
+        alpha: 42
+        beta: "abcdef"
+      }) {
+        beta
+        alpha
+      }
+    }
+    """
+    Then the query will be successful and the response will match:
+      | JSON Path             | Value Type | Value |
+      | data.myMutation.alpha | Int        |       |
+      | data.myMutation.beta  | String     |       |
+    And the GraphQL server at "http://localhost:3000" will have not received any requests
+
   Scenario: Query imposter with remotely hosted schema definition
     Given a following schema definition exists at the "http://localhost:8080/schema.graphql" URL:
     """
@@ -215,7 +255,7 @@ Feature: Create imposter from Schema Endpoint
       }
     ]
     """
-    When Lee attempts to execute the following GraphQL query:
+    When Uri attempts to execute the following GraphQL query:
     """
     mutation {
       myOtherMutation(data: {

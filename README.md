@@ -7,13 +7,18 @@ Wraps [Apollo Server](https://www.apollographql.com/docs/apollo-server) to allow
 server via mountebank `stubs` (see below).
 
 ## Features
+
 * No code to write: Use [mountebank's REST API](http://www.mbtest.org/docs/api/overview) to create test doubles
-* Create mock GraphQL APIs based on [in-line](https://github.com/bashj79/mb-graphql/tree/main/features/queryImposterCreatedFromInlineGraphQLSchema.feature) or [remote schema definitions](https://github.com/bashj79/mb-graphql/tree/main/features/queryImposterCreatedFromGraphQLSchemaEndpoint.feature)
-* Works with both [top-level queries and sub-queries](https://github.com/bashj79/mb-graphql/tree/main/features/queryImposter.feature)
-* Run [as a proxy](https://github.com/bashj79/mb-graphql/tree/main/features/queryImposterWithProxiedResult.feature) to an existing GraphQL API
-* [Record requests](https://github.com/bashj79/mb-graphql/tree/main/features/recordRequestsForImposter.feature) made against mocked GraphQL API (useful for [Golden Master Testing](https://en.wikipedia.org/wiki/Characterization_test))
+* Create mock GraphQL APIs based
+  on [in-line](https://github.com/bashj79/mb-graphql/tree/main/features/queryImposterCreatedFromInlineGraphQLSchema.feature)
+  or [remote schema definitions](https://github.com/bashj79/mb-graphql/tree/main/features/queryImposterCreatedFromGraphQLSchemaEndpoint.feature)
+* Run [as a proxy](https://github.com/bashj79/mb-graphql/tree/main/features/queryImposterWithProxiedResult.feature) to
+  an existing GraphQL API
+* [Record requests](https://github.com/bashj79/mb-graphql/tree/main/features/recordRequestsForImposter.feature) made
+  against mocked GraphQL API (useful for [Golden Master Testing](https://en.wikipedia.org/wiki/Characterization_test))
 
 ## Getting started
+
 ### Option 1: Run with Docker (the easiest option)
 
 ```
@@ -144,12 +149,12 @@ the [mountbank mental model](https://www.mbtest.org/docs/mentalModel).
 
 ## GraphQL Request Predicates
 
-| Field      | Description                                                                                           | Type   |
-|------------|-------------------------------------------------------------------------------------------------------|--------|
-| `query`    | The name of the GraphQL query e.g. `myQuery` or sub-query e.g. `myQuery.mySubQuery.mySecondSubQuery`. | String |
-| `mutation` | The name of the GraphQL mutation e.g. `myMutation`.                                                   | String |
-| `args`     | The arguments passed to the GraphQL query/mutation.                                                   | Object |
-| `headers`  | The HTTP headers passed to the GraphQL query/mutation.                                                | Object |
+| Field      | Description                                            | Type   |
+|------------|--------------------------------------------------------|--------|
+| `query`    | The name of the GraphQL query e.g. `myQuery`.          | String |
+| `mutation` | The name of the GraphQL mutation e.g. `myMutation`.    | String |
+| `args`     | The arguments passed to the GraphQL query/mutation.    | Object |
+| `headers`  | The HTTP headers passed to the GraphQL query/mutation. | Object |
 
 Please see the [mountebank predicate documentation](https://www.mbtest.org/docs/api/predicates) for further details of
 mountebank's stub predicates and their usage.

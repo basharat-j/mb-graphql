@@ -5,14 +5,14 @@ import config from '../utils/config';
 
 export default async ({
   operationType,
-  pathKey,
+  operationName,
   args,
   headers,
   mountebankCallbackURL = config.mountebankCallbackURL,
 }) => {
   const mountebankCallbackBody = createMountebankCallbackBody({
     operationType,
-    pathKey,
+    operationName,
     args,
     headers,
   });
@@ -21,6 +21,5 @@ export default async ({
     body: JSON.stringify(mountebankCallbackBody),
     headers: { 'Content-Type': 'application/json' },
   });
-  const mountebankResponse = await mountebankResult.json();
-  return mountebankResponse;
+  return mountebankResult.json();
 };

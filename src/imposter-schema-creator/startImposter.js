@@ -1,8 +1,8 @@
 import { ApolloServer } from 'apollo-server';
 
+import createContext from './createContext';
 import createImposterSchema from './createImposterSchema';
 import logger from '../utils/logger';
-import createContext from './createContext';
 import randomString from '../mock-generator/randomString';
 
 export default async ({
