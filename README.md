@@ -1,3 +1,5 @@
+[![Node.js Build](https://github.com/bashj79/mb-graphql/actions/workflows/build.yaml/badge.svg)](https://github.com/bashj79/mb-graphql/actions/workflows/build.yaml)
+
 # Welcome, friend
 
 mb-graphql is a [mountebank](https://www.mbtest.org) plugin that makes creating test doubles for GraphQL APIs a lot
