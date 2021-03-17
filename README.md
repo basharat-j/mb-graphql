@@ -1,4 +1,8 @@
-[![Node.js Build](https://github.com/bashj79/mb-graphql/actions/workflows/build.yaml/badge.svg)](https://github.com/bashj79/mb-graphql/actions/workflows/build.yaml)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bashj79/mb-graphql/Node.js%20Build)
+![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/bashj79/mb-graphql)
+![Docker Pulls](https://img.shields.io/docker/pulls/bashj79/mountebank-graphql)
+![npm](https://img.shields.io/npm/v/mb-graphql)
+![npm](https://img.shields.io/npm/dw/mb-graphql)
 
 # Welcome, friend
 
