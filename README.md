@@ -4,6 +4,8 @@
 ![npm](https://img.shields.io/npm/v/mb-graphql)
 ![npm](https://img.shields.io/npm/dw/mb-graphql)
 
+![GraphQL Playground](docs/mb-graphql-logo.png)
+
 # Welcome, friend
 
 mb-graphql is a [mountebank](https://www.mbtest.org) plugin that makes creating test doubles for GraphQL APIs a lot
@@ -107,7 +109,7 @@ curl -i -X POST -H 'Content-Type: application/json' http://localhost:2525/impost
 
 You can now access the GraphQL playground for the imposter at `http://localhost:4000`:
 
-![GraphQL Playground](./playground.png)
+![GraphQL Playground](docs/playground.png)
 
 ### Request
 
