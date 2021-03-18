@@ -1,7 +1,7 @@
 [![Node.js Build](https://github.com/bashj79/mb-graphql/actions/workflows/build.yaml/badge.svg)](https://github.com/bashj79/mb-graphql/actions/workflows/build.yaml)
-![Docker Pulls](https://img.shields.io/docker/pulls/bashj79/mountebank-graphql)
-![npm](https://img.shields.io/npm/v/mb-graphql)
-![npm](https://img.shields.io/npm/dw/mb-graphql)
+[![Docker Pulls](https://img.shields.io/docker/pulls/bashj79/mountebank-graphql)](https://hub.docker.com/r/bashj79/mountebank-graphql)
+[![npm](https://img.shields.io/npm/v/mb-graphql)](https://www.npmjs.com/package/mb-graphql)
+[![npm](https://img.shields.io/npm/dw/mb-graphql)](https://www.npmjs.com/package/mb-graphql)
 
 # Welcome, friend
 ![GraphQL Playground](docs/mb-graphql-logo.png)
