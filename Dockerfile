@@ -1,14 +1,19 @@
-FROM bbyars/mountebank:2.4.0
+FROM alpine:3.13.2
 
-ENV MB_GRAPHQL_VERSION=0.1.9
-RUN npm install -g mb-graphql@${MB_GRAPHQL_VERSION} --production
+ENV NODE_VERSION=14.16.0-r0
+ENV MOUNTEBANK_VERSION=2.4.0
+ENV MB_GRAPHQL_VERSION=0.1.10
 
-RUN mkdir /mb-graphql
-COPY protocols.json /mb-graphql
+RUN apk update \
+ && apk add --no-cache nodejs=${NODE_VERSION} npm=${NODE_VERSION} \
+ && npm install -g mountebank@${MOUNTEBANK_VERSION} mb-graphql@${MB_GRAPHQL_VERSION} --production \
+ && npm cache clean --force 2>/dev/null \
+ && apk del npm \
+ && rm -rf /tmp/npm*
 
-WORKDIR /app
+COPY protocols.json .
 
 EXPOSE 2525
 
-ENTRYPOINT ["node", "bin/mb"]
-CMD ["start", "--protofile", "/mb-graphql/protocols.json"]
+ENTRYPOINT ["mb"]
+CMD ["start", "--protofile", "protocols.json"]
