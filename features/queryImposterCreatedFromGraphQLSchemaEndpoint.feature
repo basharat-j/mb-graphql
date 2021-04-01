@@ -1,4 +1,4 @@
-Feature: Create imposter from Schema Endpoint
+Feature: Query imposter created from GraphQL schema endpoint
   Allow querying of GraphQL imposter having a remote schema definition
 
   Scenario: Query imposter with endpoint with accessible introspection query
@@ -28,11 +28,7 @@ Feature: Create imposter from Schema Endpoint
     [
       {
         "equals": {
-          "mutation": "myMutation"
-        }
-      },
-      {
-        "equals": {
+          "mutation": "myMutation",
           "args": {
             "data": {
               "alpha": 42,
@@ -108,11 +104,7 @@ Feature: Create imposter from Schema Endpoint
     [
       {
         "equals": {
-          "mutation": "mySecureMutation"
-        }
-      },
-      {
-        "equals": {
+          "mutation": "mySecureMutation",
           "args": {
             "data": {
               "alpha": 42,
@@ -227,11 +219,7 @@ Feature: Create imposter from Schema Endpoint
     [
       {
         "equals": {
-          "mutation": "myOtherMutation"
-        }
-      },
-      {
-        "equals": {
+          "mutation": "myOtherMutation",
           "args": {
             "data": {
               "alpha": 123,

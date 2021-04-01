@@ -74,11 +74,7 @@ mb start --protofile protocols.json
       "predicates": [
         {
           "equals": {
-            "query": "myQuery"
-          }
-        },
-        {
-          "equals": {
+            "query": "myQuery",
             "args": {
               "myFirstArg": 123
             }

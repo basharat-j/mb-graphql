@@ -1,4 +1,4 @@
-Feature: Create imposter from Inline Schema
+Feature: Query imposter created from inline GraphQL schema
   Allow querying of GraphQL imposter having an inline schema definition
 
   Background:
@@ -18,11 +18,7 @@ Feature: Create imposter from Inline Schema
     [
       {
         "equals": {
-          "query": "myQuery"
-        }
-      },
-      {
-        "equals": {
+          "query": "myQuery",
           "args": {
             "myFirstArg": 123
           }
@@ -66,7 +62,7 @@ Feature: Create imposter from Inline Schema
     }
     """
 
-  Scenario: Query imposter with incomplete predicate match
+  Scenario: Query imposter with partial predicate match
     When Ivan attempts to execute the following GraphQL query:
     """
     query {

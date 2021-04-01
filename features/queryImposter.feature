@@ -1,4 +1,4 @@
-Feature: Create imposter
+Feature: Query imposter
   Allow querying of GraphQL imposter
 
   Background:
@@ -21,11 +21,7 @@ Feature: Create imposter
     [
       {
         "equals": {
-          "query": "myQuery"
-        }
-      },
-      {
-        "equals": {
+          "query": "myQuery",
           "args": {
             "myFirstArg": 123
           }

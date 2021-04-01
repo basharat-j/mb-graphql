@@ -1,6 +1,6 @@
 {
   "name": "mb-graphql",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "mountebank test doubles for GraphQL",
   "author": "bashj79",
   "license": "MIT",
@@ -19,8 +19,8 @@
     "lint": "eslint src features",
     "lint:fix": "eslint src features --fix",
     "test": "jest",
-    "test:integration": "./node_modules/.bin/cucumber-js --publish-quiet --require-module @babel/register",
-    "test:integration-only": "./node_modules/.bin/cucumber-js --tags \"@only\" --publish-quiet --require-module @babel/register"
+    "test:integration": "cucumber-js --publish-quiet --require-module @babel/register",
+    "test:integration-only": "cucumber-js --tags \"@only\" --publish-quiet --require-module @babel/register"
   },
   "files": [
     "dist",
