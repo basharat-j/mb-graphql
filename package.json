@@ -37,7 +37,7 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.13.10",
-    "@graphql-tools/delegate": "^7.1.2",
+    "@graphql-tools/delegate": "^7.1.3",
     "@graphql-tools/load": "^6.2.7",
     "@graphql-tools/schema": "^7.1.3",
     "@graphql-tools/url-loader": "^6.8.2",
