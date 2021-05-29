@@ -40,7 +40,7 @@
     "@graphql-tools/delegate": "^7.1.5",
     "@graphql-tools/load": "^6.2.7",
     "@graphql-tools/schema": "^7.1.5",
-    "@graphql-tools/url-loader": "^6.8.3",
+    "@graphql-tools/url-loader": "^6.10.1",
     "@graphql-tools/wrap": "^7.0.8",
     "apollo-server": "^2.22.2",
     "graphql": "^15.5.0",
