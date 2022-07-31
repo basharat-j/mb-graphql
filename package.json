@@ -45,7 +45,7 @@
     "apollo-server": "^2.24.0",
     "graphql": "^15.5.0",
     "graphql-middleware": "^6.0.10",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^3.2.10"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.14",
